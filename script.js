@@ -5,6 +5,7 @@ const firstGifDuration = 5500;
 const valentinesFirstGifDuration = 2000;
 const backgroundContainer = document.querySelector('.background-container');
 const smallImageSrc = "images/dwukropek_trzy.png";
+const dearMimi = document.getElementById("top-left-image")
 
 // Preload drugiego GIF-a
 const secondGif = new Image();
@@ -30,7 +31,7 @@ buttonsContainer.appendChild(newImage);
 const bigAngryImage = document.createElement("img");
 bigAngryImage.src = "images/lisek_big_angry.png";
 bigAngryImage.style.position = "fixed";  // Przykrywa cały ekran
-bigAngryImage.style.top = "50%";
+bigAngryImage.style.top = "30%";
 bigAngryImage.style.left = "50%";
 bigAngryImage.style.transform = "translate(-50%, -50%)";  // Wyśrodkowanie
 bigAngryImage.style.width = "200vw";
@@ -38,6 +39,9 @@ bigAngryImage.style.height = "auto";
 bigAngryImage.style.zIndex = "9999";  // Na samej górze
 bigAngryImage.style.display = "none";  // Domyślnie ukryty
 document.body.appendChild(bigAngryImage);
+
+const beatlesSecondGif = new Image();
+beatlesSecondGif.src = "images/lisek_beatles_second.gif";
 
 yesButton.style.pointerEvents = "none";
 noButton.style.pointerEvents = "none";
@@ -66,22 +70,71 @@ yesButton.addEventListener("click", () => {
     yesButton.style.pointerEvents = 'none';
     const valentinesText = document.querySelector('.valentine-text');
     valentinesText.style.display = 'none';  // Ukrywamy napis
+    dearMimi.style.display = 'none';
 
+    const helpButton = document.createElement("button");
+    helpButton.innerText = "Help";
+    helpButton.classList.add("help-button");
+    buttonsContainer.appendChild(helpButton);
+    
+   
+    helpButton.style.position = "fixed";
+    helpButton.style.top = "20px";
+    helpButton.style.left = "20px";
+    helpButton.style.zIndex = "1000"; 
 
 
     setTimeout(() => {
         gif.src = valentinesSecondGif.src;
         newImage.style.display = "block";
-        setInterval(addRandomImage, 300);
+        setInterval(addRandomImage, 200);
 
     }, valentinesFirstGifDuration)
+
+    helpButton.addEventListener("click", () => {
+
+        const audio = new Audio("sounds/help.mp3");
+        audio.loop = true;  // Powtarzanie w kółko
+        audio.volume = 0.5;  
+        audio.play();  
+        
+        document.body.innerHTML = ''; // Czyści cały ekran
+
+        
+        const container = document.createElement("div");
+        container.style.position = "absolute";
+        container.style.top = "50%";
+        container.style.left = "50%";
+        container.style.transform = "translate(-50%, -50%)";
+        container.style.textAlign = "center";
+
+        
+        const helpImage = document.createElement("img");
+        helpImage.src = "images/help!.png";
+        helpImage.style.width = "300px";  // Dostosuj rozmiar
+
+        
+        const lisek = document.createElement("img");
+        lisek.src = "images/lisek_beatles_first.gif";
+        lisek.style.width = "300px";  // Dostosuj rozmiar
+        lisek.style.display = "block";
+        lisek.style.marginTop = "20px";  // Odstęp od napisu
+
+        container.appendChild(helpImage);
+        container.appendChild(lisek);
+        document.body.appendChild(container);
+
+        setTimeout(() => {
+            lisek.src = beatlesSecondGif.src;
+        }, 2000);
+    });
 });
 
 noButton.addEventListener("click", () => {
     bigAngryImage.style.display = "block";
     setTimeout(() => {
         bigAngryImage.style.display = "none";
-    }, 3000)
+    }, 2000)
 })
 
 noButton.addEventListener("mouseenter", () => {
