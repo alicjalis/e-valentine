@@ -1,2 +1,4 @@
 # e-valentine
-:3
+simple e-valentine page  
+with custom animations
+![ ](images/lisek_second.gif)
