@@ -29,24 +29,32 @@ body {
 }
 
 .gif-placeholder img {
-    width: 100%;  /* Sprawia, że obraz dopasuje się do szerokości rodzica */
-    height: auto; /* Zachowuje proporcje */
+    width: 100%;
+    /* Sprawia, że obraz dopasuje się do szerokości rodzica */
+    height: auto;
+    /* Zachowuje proporcje */
     display: block;
 }
 
-.valentine-text, .buttons {
-    display: none; /* Ukrycie na początku */
-    opacity: 0; /* Można dodać, jeśli chcesz animować przezroczystość */
-    transition: opacity 0.5s ease, display 0s linear 0.5s; /* Płynne pojawianie się */
+.valentine-text,
+.buttons {
+    display: none;
+    /* Ukrycie na początku */
+    opacity: 0;
+    /* Można dodać, jeśli chcesz animować przezroczystość */
+    transition: opacity 0.5s ease, display 0s linear 0.5s;
+    /* Płynne pojawianie się */
 }
 
 .valentine-text {
     position: absolute;
-    top: 45%; 
+    top: 45%;
     left: 50%;
-    transform: translate(-50%, -50%);  /* Używamy transformacji, aby wycentrować tekst */
-    width: auto;  /* Dopasowanie szerokości */
-    height: 200px; 
+    transform: translate(-50%, -50%);
+    /* Używamy transformacji, aby wycentrować tekst */
+    width: auto;
+    /* Dopasowanie szerokości */
+    height: 200px;
     z-index: -1;
 }
 
@@ -69,53 +77,97 @@ button {
 }
 
 #yesbutton {
-    width: 180px;  
-    height: 100px;  
-    border: none;  
-    cursor: pointer; 
+    width: 180px;
+    height: 100px;
+    border: none;
+    cursor: pointer;
 }
 
 #yesbutton:hover {
-    background-image: url('images/yes_hover.png'); /* Zmiana tła, gdy najedziesz na przycisk */
-    background-size: cover;  /* Dopasowanie rozmiaru */
-    background-repeat: no-repeat;  /* Zapobiega powtarzaniu */
+    background-image: url('images/yes_hover.png');
+    /* Zmiana tła, gdy najedziesz na przycisk */
+    background-size: cover;
+    /* Dopasowanie rozmiaru */
+    background-repeat: no-repeat;
+    /* Zapobiega powtarzaniu */
 }
 
 #nobutton {
-    width: 180px;  
-    height: 100px;  
-    border: none;  
-    cursor: pointer;  
-    background-color: transparent;  /* Przezroczyste tło */
-    position: relative;  /* Umożliwia pozycjonowanie obrazków */
-    padding: 0;  /* Usuń domyślne paddingi */
+    width: 180px;
+    height: 100px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    /* Przezroczyste tło */
+    position: relative;
+    /* Umożliwia pozycjonowanie obrazków */
+    padding: 0;
+    /* Usuń domyślne paddingi */
 }
 
 #nobutton img {
-    position: absolute;  /* Umożliwia nakładanie obrazków */
+    position: absolute;
+    /* Umożliwia nakładanie obrazków */
     top: 0;
     left: 0;
-    width: 100%;  /* Dopasowanie do rozmiaru przycisku */
-    height: 100%;  /* Dopasowanie do rozmiaru przycisku */
-    transition: opacity 0.3s;  /* Efekt płynnego przejścia */
+    width: 100%;
+    /* Dopasowanie do rozmiaru przycisku */
+    height: 100%;
+    /* Dopasowanie do rozmiaru przycisku */
+    transition: opacity 0.3s;
+    /* Efekt płynnego przejścia */
 }
 
 #nobutton .normal-image {
-    opacity: 1;  /* Domyślnie widoczny */
+    opacity: 1;
+    /* Domyślnie widoczny */
 }
 
 #nobutton .hover-image {
-    opacity: 0;  /* Domyślnie ukryty */
+    opacity: 0;
+    /* Domyślnie ukryty */
 }
 
 #nobutton:hover .normal-image {
-    opacity: 0;  /* Ukryj normalny obrazek po najechaniu */
+    opacity: 0;
+    /* Ukryj normalny obrazek po najechaniu */
 }
 
 #nobutton:hover .hover-image {
-    opacity: 1;  /* Pokaż hoverowy obrazek po najechaniu */
+    opacity: 1;
+    /* Pokaż hoverowy obrazek po najechaniu */
 }
 
 button:hover {
     background-color: #ff9eb0;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    /* Tło, więc musi być za resztą */
+    overflow: hidden;
+}
+
+.background-container img {
+    position: absolute;
+    width: 50px;
+    /* Rozmiar obrazka, można zmieniać */
+    height: auto;
+    opacity: 0.7;
+    /* Lekka przezroczystość */
+    pointer-events: none;
+    /* Żeby obrazki nie blokowały kliknięć */
+}
+
+.centered-image {
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    top: 110%;
+    transform: translate(-50%, -50%);
 }
