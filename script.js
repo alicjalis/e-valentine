@@ -30,7 +30,7 @@ buttonsContainer.appendChild(newImage);
 const bigAngryImage = document.createElement("img");
 bigAngryImage.src = "images/lisek_big_angry.png";
 bigAngryImage.style.position = "fixed";  // Przykrywa cały ekran
-bigAngryImage.style.top = "50%";
+bigAngryImage.style.top = "30%";
 bigAngryImage.style.left = "50%";
 bigAngryImage.style.transform = "translate(-50%, -50%)";  // Wyśrodkowanie
 bigAngryImage.style.width = "200vw";
