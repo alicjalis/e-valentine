@@ -19,6 +19,16 @@ body {
     position: relative;
 }
 
+#top-left-image {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 300px; /* Zmieniony rozmiar obrazka */
+    height: auto;
+    z-index: -1; /* Ustawienie w tle, aby nie wpływał na inne elementy */
+    transform: translateX(-50%);
+}
+
 .gif-placeholder {
     width: 400px;
     height: auto;
