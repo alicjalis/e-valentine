@@ -96,7 +96,10 @@ yesButton.addEventListener("click", () => {
         const audio = new Audio("sounds/help.mp3");
         audio.loop = true;  // Powtarzanie w kółko
         audio.volume = 0.5;  
-        audio.play();  
+        setTimeout(()=>{
+            audio.play();
+        }, 2000)
+          
         
         document.body.innerHTML = ''; // Czyści cały ekran
 
